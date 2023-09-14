@@ -1,7 +1,6 @@
 import { Router } from "express";
 import controller from "@/controllers/controller";
 
-//teste
 const router = Router();
 router.get("/", controller.getInfo)
 
