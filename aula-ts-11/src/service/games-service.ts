@@ -1,13 +1,14 @@
 import gamesRepository from "../repository/games-repository";
 import { Game } from "./../protocols/game-protocol";
 
-async function getGames() {
-  return await gamesRepository.getGames();
+async function getGames(): Promise<Game[]> {
+  const games = await gamesRepository.getGames();
+  return games;
 }
 
-async function createGame(game: Game) {
+async function createGame(game: Game): Promise<void> {
   if (await gameAlreadyExists(game)) {
-    throw { message: "Game already exists" }
+    throw { message: "Game already exists" };
   }
 
   await gamesRepository.createGame(game);
@@ -20,7 +21,7 @@ async function gameAlreadyExists(game: Game): Promise<boolean> {
 
 const gamesService = {
   getGames,
-  createGame
-}
+  createGame,
+};
 
 export default gamesService;

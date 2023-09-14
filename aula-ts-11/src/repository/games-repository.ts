@@ -4,7 +4,7 @@ import { Game, CreateGame } from "../protocols/game-protocol";
 //const games: Game[] = [];
 
 async function getGames() {
-  const resultGetGames = await connection.query<Game[]>(`SELECT * FROM games`);
+  const resultGetGames = await connection.query<Game>(`SELECT * FROM games`);
   return resultGetGames.rows;
 }
 
