@@ -1,3 +1,1 @@
 # curso-typescript
-
-- teste
